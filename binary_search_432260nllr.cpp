@@ -1,0 +1,25 @@
+// Auto-generated: 2026-05-10 10:33:52
+// Topic: Binary Search & Linear Search
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+namespace search_432260nllr {
+    int binary(const std::vector<int>& a, int t) {
+        int lo=0,hi=(int)a.size()-1;
+        while(lo<=hi){ int m=lo+(hi-lo)/2; if(a[m]==t) return m; else if(a[m]<t) lo=m+1; else hi=m-1; }
+        return -1;
+    }
+    int linear(const std::vector<int>& a, int t) {
+        for(int i=0;i<(int)a.size();++i) if(a[i]==t) return i; return -1;
+    }
+}
+
+int main() {
+    std::vector<int> arr = { 32, 85, 58, 13, 2, 94 };
+    std::sort(arr.begin(),arr.end());
+    int t=arr[arr.size()/2];
+    std::cout<<"Sorted: "; for(int x:arr) std::cout<<x<<" "; std::cout<<"\n";
+    std::cout<<"Search "<<t<<": index "<<search_432260nllr::binary(arr,t)<<"\n";
+    return 0;
+}
